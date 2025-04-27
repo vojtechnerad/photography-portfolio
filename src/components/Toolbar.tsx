@@ -9,15 +9,15 @@ const Container = styled.div`
 export default function Toolbar() {
   return (
     <Container className="flex gap-2">
-      <NavLink to="/photography-portfolio/portfolio">
+      <NavLink to="/portfolio">
         <span>Portfolio</span>
       </NavLink>
 
-      <NavLink to="/photography-portfolio/o-mne">
+      <NavLink to="/o-mne">
         <span>O mně</span>
       </NavLink>
 
-      <NavLink to="/photography-portfolio/kontakty">
+      <NavLink to="/kontakty">
         <span>Kontakt</span>
       </NavLink>
     </Container>
