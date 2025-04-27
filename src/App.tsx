@@ -16,6 +16,7 @@ function App() {
       <Toolbar />
       <PageContent className="max-w-7xl mx-auto">
         <Routes>
+          <Route path="" element={<Portfolio />} />
           <Route path="photography-portfolio">
             <Route path="portfolio" element={<Portfolio />} />
             <Route path="kontakty" element={<Contacts />} />
