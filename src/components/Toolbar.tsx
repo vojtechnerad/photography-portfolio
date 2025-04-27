@@ -1,9 +1,16 @@
+import styled from "styled-components";
+
+const Container = styled.div`
+  width: 100%;
+  background-color: darkgrey;
+`;
+
 export default function Toolbar() {
   return (
-    <div>
+    <Container>
       <span>Portfolio</span>
       <span>O mně</span>
       <span>Kontakt</span>
-    </div>
+    </Container>
   );
 }

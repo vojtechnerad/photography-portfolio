@@ -13,12 +13,13 @@ const Title = styled.span`
   font-family: "Corinthia", cursive;
   font-weight: 700;
   font-style: normal;
-  font-size: 108px;
+  font-size: 72px;
+  line-height: 1.3;
 `;
 
-const Subtitle = styled.span`
-  font-size: 36px;
-`;
+// const Subtitle = styled.span`
+//   font-size: 36px;
+// `;
 export default function Header() {
   return (
     <Container>
