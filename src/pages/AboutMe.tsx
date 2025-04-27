@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import picture from "../assets/vojtech-nerad.jpg";
 import { IoCamera } from "react-icons/io5";
 import { MdLens } from "react-icons/md";
