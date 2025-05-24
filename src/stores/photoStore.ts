@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { Photo } from "../types/photos";
 
 import velka1 from "../assets/portfolio-pictures/neradvojtech-velka1.jpg";
 import velka2 from "../assets/portfolio-pictures/neradvojtech-velka2.jpg";
@@ -11,25 +12,31 @@ import detail2 from "../assets/portfolio-pictures/neradvojtech-detail2.jpg";
 import story1 from "../assets/portfolio-pictures/neradvojtech-story1.jpg";
 import reklama1 from "../assets/portfolio-pictures/vojtechnerad-reklama1.jpg";
 
-type Photo = {
-  picture: string;
-};
-
 type PhotoStore = {
   photoList: Array<Photo>;
+  selectedPhoto: Photo | null;
+  selectPhoto: (val: Photo | null) => void;
 };
 
 export const usePhotoStore = create<PhotoStore>((set, get) => ({
   photoList: [
-    { picture: velka1 },
-    { picture: velka2 },
-    { picture: mala1 },
-    { picture: mala2 },
-    { picture: street1 },
-    { picture: street2 },
-    { picture: detail1 },
-    { picture: detail2 },
-    { picture: story1 },
-    { picture: reklama1 },
+    { id: "velka-1", picture: velka1, title: "", categories: [] },
+    { id: "velka-2", picture: velka2, title: "", categories: [] },
+    { id: "mala-1", picture: mala1, title: "", categories: [] },
+    { id: "mala-2", picture: mala2, title: "", categories: [] },
+    { id: "street-1", picture: street1, title: "", categories: [] },
+    { id: "street-2", picture: street2, title: "", categories: [] },
+    { id: "detail-1", picture: detail1, title: "", categories: [] },
+    { id: "detail-2", picture: detail2, title: "", categories: [] },
+    { id: "story-1", picture: story1, title: "", categories: [] },
+    { id: "reklama-1", picture: reklama1, title: "", categories: [] },
   ],
+
+  selectedPhoto: null,
+
+  selectPhoto: (val: Photo | null) => {
+    set(() => ({
+      selectedPhoto: val,
+    }));
+  },
 }));

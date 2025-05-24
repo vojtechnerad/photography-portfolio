@@ -2,8 +2,7 @@ import { useState } from "react";
 import { usePhotoStore } from "../stores/photoStore";
 
 export default function Portfolio() {
-  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
-  const { photoList: photos } = usePhotoStore();
+  const { photoList: photos, selectPhoto, selectedPhoto } = usePhotoStore();
 
   return (
     <>
@@ -13,7 +12,7 @@ export default function Portfolio() {
           <div
             key={index}
             className="relative w-full aspect-square overflow-hidden rounded-xl shadow cursor-pointer"
-            onClick={() => setSelectedPhoto(item.picture)}
+            onClick={() => selectPhoto(item)}
           >
             <img
               src={item.picture}
@@ -28,16 +27,16 @@ export default function Portfolio() {
       {selectedPhoto && (
         <div
           className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center"
-          onClick={() => setSelectedPhoto(null)}
+          onClick={() => selectPhoto(null)}
         >
           <div className="max-w-3xl max-h-[90vh] relative">
             <img
-              src={selectedPhoto}
+              src={selectedPhoto.picture}
               alt="Detailní pohled"
               className="rounded-lg max-w-full max-h-full object-contain"
             />
             <button
-              onClick={() => setSelectedPhoto(null)}
+              onClick={() => selectPhoto(null)}
               className="absolute top-2 right-2 text-white text-2xl bg-black/50 hover:bg-black/70 rounded-full w-10 h-10 flex items-center justify-center"
             >
               ✕
