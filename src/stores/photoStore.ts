@@ -20,7 +20,18 @@ type PhotoStore = {
 
 export const usePhotoStore = create<PhotoStore>((set, get) => ({
   photoList: [
-    { id: "velka-1", picture: velka1, title: "", categories: [] },
+    {
+      id: "velka-1",
+      picture: velka1,
+      title: "Karlův most při soumraku z náplavky",
+      description:
+        "Pohled z náplavky na ikonický Karlův most v Praze během klidného podvečera. V popředí stojí nutrie u vody, zatímco panorama historických budov Starého Města se zrcadlí na hladině Vltavy. Měkké světlo zapadajícího slunce zvýrazňuje architekturu a vytváří poklidnou atmosféru.",
+      focalLength: "18.0 mm",
+      aperture: "13",
+      shutterSpeed: "1/30",
+      iso: 400,
+      categories: [],
+    },
     { id: "velka-2", picture: velka2, title: "", categories: [] },
     { id: "mala-1", picture: mala1, title: "", categories: [] },
     { id: "mala-2", picture: mala2, title: "", categories: [] },

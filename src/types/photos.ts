@@ -6,5 +6,11 @@ export type Photo = {
   title: string;
   description?: string;
 
+  dateTaken?: Date;
+  focalLength?: string;
+  aperture?: string;
+  shutterSpeed?: string;
+  iso?: number;
+
   categories: Array<PhotoCategory>;
 };

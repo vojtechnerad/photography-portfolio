@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { GoDot } from "react-icons/go";
+import PhotoMetaItem from "../components/PhotoMetaItem";
 import { usePhotoStore } from "../stores/photoStore";
 
 export default function Portfolio() {
@@ -29,18 +30,68 @@ export default function Portfolio() {
           className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center"
           onClick={() => selectPhoto(null)}
         >
-          <div className="max-w-3xl max-h-[90vh] relative">
-            <img
-              src={selectedPhoto.picture}
-              alt="Detailní pohled"
-              className="rounded-lg max-w-full max-h-full object-contain"
-            />
-            <button
-              onClick={() => selectPhoto(null)}
-              className="absolute top-2 right-2 text-white text-2xl bg-black/50 hover:bg-black/70 rounded-full w-10 h-10 flex items-center justify-center"
-            >
-              ✕
-            </button>
+          <div
+            className="w-[90vw] h-[90vh] bg-black rounded-lg overflow-hidden flex"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* LEVÝ PANEL */}
+            <div className="w-[300px] p-4 text-white border-r border-white/20 overflow-y-auto">
+              <h2 className="text-xl font-semibold mb-2">
+                {selectedPhoto.title}
+              </h2>
+              {selectedPhoto.description && (
+                <p className="text-sm opacity-80">
+                  {selectedPhoto.description}
+                </p>
+              )}
+
+              {selectedPhoto.iso && (
+                <PhotoMetaItem
+                  icon={<GoDot />}
+                  label="ISO"
+                  value={selectedPhoto.iso}
+                />
+              )}
+
+              {selectedPhoto.aperture && (
+                <PhotoMetaItem
+                  icon={<GoDot />}
+                  label="Aperture"
+                  value={selectedPhoto.aperture}
+                />
+              )}
+
+              {selectedPhoto.shutterSpeed && (
+                <PhotoMetaItem
+                  icon={<GoDot />}
+                  label="shutterSpeed"
+                  value={selectedPhoto.shutterSpeed}
+                />
+              )}
+
+              {selectedPhoto.shutterSpeed && (
+                <PhotoMetaItem
+                  icon={<GoDot />}
+                  label="shutterSpeed"
+                  value={selectedPhoto.shutterSpeed}
+                />
+              )}
+            </div>
+
+            {/* FOTKA */}
+            <div className="flex-grow flex items-center justify-center relative bg-black">
+              <img
+                src={selectedPhoto.picture}
+                alt="Detailní pohled"
+                className="max-w-full max-h-full object-contain"
+              />
+              <button
+                onClick={() => selectPhoto(null)}
+                className="absolute top-2 right-2 text-white text-2xl bg-black/50 hover:bg-black/70 rounded-full w-10 h-10 flex items-center justify-center"
+              >
+                ✕
+              </button>
+            </div>
           </div>
         </div>
       )}
