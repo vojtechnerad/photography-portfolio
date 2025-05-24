@@ -1,27 +1,50 @@
-import velka1 from "../assets/portfolio-pictures/neradvojtech-velka1.jpg";
-import velka2 from "../assets/portfolio-pictures/neradvojtech-velka2.jpg";
-import mala1 from "../assets/portfolio-pictures/neradvojtech-mala1.jpg";
-import mala2 from "../assets/portfolio-pictures/neradvojtech-mala2.jpg";
-import street1 from "../assets/portfolio-pictures/neradvojtech-street1.jpg";
-import street2 from "../assets/portfolio-pictures/neradvojtech-street2.jpg";
-import detail1 from "../assets/portfolio-pictures/neradvojtech-detail1.jpg";
-import detail2 from "../assets/portfolio-pictures/neradvojtech-detail2.jpg";
-import story1 from "../assets/portfolio-pictures/neradvojtech-story1.jpg";
-import reklama1 from "../assets/portfolio-pictures/vojtechnerad-reklama1.jpg";
+import { useState } from "react";
+import { usePhotoStore } from "../stores/photoStore";
 
 export default function Portfolio() {
+  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
+  const { photoList: photos } = usePhotoStore();
+
   return (
-    <div className="columns-4">
-      <img src={velka1} alt="" />
-      <img src={velka2} alt="" />
-      <img src={mala1} alt="" />
-      <img src={mala2} alt="" />
-      <img src={street1} alt="" />
-      <img src={street2} alt="" />
-      <img src={detail1} alt="" />
-      <img src={detail2} alt="" />
-      <img src={story1} alt="" />
-      <img src={reklama1} alt="" />
-    </div>
+    <>
+      {/* GRID */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
+        {photos.map((item, index) => (
+          <div
+            key={index}
+            className="relative w-full aspect-square overflow-hidden rounded-xl shadow cursor-pointer"
+            onClick={() => setSelectedPhoto(item.picture)}
+          >
+            <img
+              src={item.picture}
+              alt={`Fotka ${index + 1}`}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* LIGHTBOX */}
+      {selectedPhoto && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center"
+          onClick={() => setSelectedPhoto(null)}
+        >
+          <div className="max-w-3xl max-h-[90vh] relative">
+            <img
+              src={selectedPhoto}
+              alt="Detailní pohled"
+              className="rounded-lg max-w-full max-h-full object-contain"
+            />
+            <button
+              onClick={() => setSelectedPhoto(null)}
+              className="absolute top-2 right-2 text-white text-2xl bg-black/50 hover:bg-black/70 rounded-full w-10 h-10 flex items-center justify-center"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
