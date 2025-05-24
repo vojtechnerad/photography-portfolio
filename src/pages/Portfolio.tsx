@@ -4,6 +4,7 @@ import { usePhotoStore } from "../stores/photoStore";
 import CategorySelector from "../components/CategorySelector";
 import SimpleMap from "../components/SimpleMap";
 import { useEffect } from "react";
+import { photoCategories } from "../enums/photoCategory";
 
 export default function Portfolio() {
   const { filteredPhotos, selectPhoto, selectedPhoto } = usePhotoStore();
@@ -66,6 +67,18 @@ export default function Portfolio() {
                   {selectedPhoto.description}
                 </p>
               )}
+
+              {selectedPhoto.categories.map((cat) => {
+                const category = photoCategories.find((x) => x.id === cat);
+                if (category) {
+                  return (
+                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">
+                      <span className="text-lg">{category.icon}</span>
+                      <span>{category.label}</span>
+                    </div>
+                  );
+                }
+              })}
 
               {selectedPhoto.iso && (
                 <PhotoMetaItem
