@@ -1,15 +1,19 @@
 import { GoDot } from "react-icons/go";
 import PhotoMetaItem from "../components/PhotoMetaItem";
 import { usePhotoStore } from "../stores/photoStore";
+import { photoCategories, PhotoCategory } from "../enums/photoCategory";
+import CategorySelector from "../components/CategorySelector";
 
 export default function Portfolio() {
-  const { photoList: photos, selectPhoto, selectedPhoto } = usePhotoStore();
+  const { filteredPhotos, selectPhoto, selectedPhoto } = usePhotoStore();
 
   return (
     <>
+      {/* CATEGORIES */}
+      <CategorySelector />
       {/* GRID */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
-        {photos.map((item, index) => (
+        {filteredPhotos().map((item, index) => (
           <div
             key={index}
             className="relative w-full aspect-square overflow-hidden rounded-xl shadow cursor-pointer"

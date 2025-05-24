@@ -11,11 +11,18 @@ import detail1 from "../assets/portfolio-pictures/neradvojtech-detail1.jpg";
 import detail2 from "../assets/portfolio-pictures/neradvojtech-detail2.jpg";
 import story1 from "../assets/portfolio-pictures/neradvojtech-story1.jpg";
 import reklama1 from "../assets/portfolio-pictures/vojtechnerad-reklama1.jpg";
+import { PhotoCategory } from "../enums/photoCategory";
 
 type PhotoStore = {
   photoList: Array<Photo>;
   selectedPhoto: Photo | null;
   selectPhoto: (val: Photo | null) => void;
+  filteredPhotos: () => Array<Photo>;
+} & CategoryProps;
+
+type CategoryProps = {
+  selectedCategory: PhotoCategory | null;
+  selectCategory: (val: PhotoCategory | null) => void;
 };
 
 export const usePhotoStore = create<PhotoStore>((set, get) => ({
@@ -30,7 +37,7 @@ export const usePhotoStore = create<PhotoStore>((set, get) => ({
       aperture: "13",
       shutterSpeed: "1/30",
       iso: 400,
-      categories: [],
+      categories: [PhotoCategory.STREET],
     },
     { id: "velka-2", picture: velka2, title: "", categories: [] },
     { id: "mala-1", picture: mala1, title: "", categories: [] },
@@ -44,10 +51,26 @@ export const usePhotoStore = create<PhotoStore>((set, get) => ({
   ],
 
   selectedPhoto: null,
+  selectedCategory: null,
 
   selectPhoto: (val: Photo | null) => {
     set(() => ({
       selectedPhoto: val,
     }));
+  },
+  selectCategory: (val: PhotoCategory | null) => {
+    console.log(val);
+    set(() => ({
+      selectedCategory: val,
+    }));
+  },
+
+  filteredPhotos: () => {
+    const { photoList, selectedCategory } = get();
+
+    if (!selectedCategory) return photoList;
+    return photoList.filter((photo) =>
+      photo.categories.includes(selectedCategory)
+    );
   },
 }));
