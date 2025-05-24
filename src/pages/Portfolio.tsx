@@ -1,11 +1,29 @@
 import { GoDot } from "react-icons/go";
 import PhotoMetaItem from "../components/PhotoMetaItem";
 import { usePhotoStore } from "../stores/photoStore";
-import { photoCategories, PhotoCategory } from "../enums/photoCategory";
 import CategorySelector from "../components/CategorySelector";
+import SimpleMap from "../components/SimpleMap";
+import { useEffect } from "react";
 
 export default function Portfolio() {
   const { filteredPhotos, selectPhoto, selectedPhoto } = usePhotoStore();
+
+  // ESC to close Lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        selectPhoto(null);
+      }
+    };
+
+    if (selectedPhoto) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPhoto, selectPhoto]);
 
   return (
     <>
@@ -35,7 +53,7 @@ export default function Portfolio() {
           onClick={() => selectPhoto(null)}
         >
           <div
-            className="w-[90vw] h-[90vh] bg-black rounded-lg overflow-hidden flex"
+            className="w-[95vw] h-[95vh] bg-black rounded-lg overflow-hidden flex"
             onClick={(e) => e.stopPropagation()}
           >
             {/* LEVÝ PANEL */}
@@ -78,6 +96,12 @@ export default function Portfolio() {
                   icon={<GoDot />}
                   label="shutterSpeed"
                   value={selectedPhoto.shutterSpeed}
+                />
+              )}
+              {selectedPhoto.location && (
+                <SimpleMap
+                  lat={selectedPhoto.location.lat}
+                  lng={selectedPhoto.location.lng}
                 />
               )}
             </div>

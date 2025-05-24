@@ -7,6 +7,7 @@ export type Photo = {
   description?: string;
 
   dateTaken?: Date;
+  location?: { lat: number; lng: number };
   focalLength?: string;
   aperture?: string;
   shutterSpeed?: string;
