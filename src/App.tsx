@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
       <Toolbar />
-      <div className="max-w-7xl mx-auto">
+      <div className="flex-1 overflow-hidden">
         <Routes>
           <Route path="/" element={<Navigate to="/portfolio" />} />
 
