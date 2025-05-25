@@ -5,7 +5,7 @@ import CategorySelector from "../components/CategorySelector";
 import SimpleMap from "../components/SimpleMap";
 import { useEffect } from "react";
 import { photoCategories } from "../enums/photoCategory";
-import ImagePreview from "../components/ImagePreview";
+import PhotoPreview from "../components/PhotoPreview";
 
 export default function Portfolio() {
   const { filteredPhotos, selectPhoto, selectedPhoto } = usePhotoStore();
@@ -34,7 +34,7 @@ export default function Portfolio() {
       {/* GRID */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
         {filteredPhotos().map((item, index) => (
-          <ImagePreview photo={item} index={index} />
+          <PhotoPreview photo={item} index={index} />
         ))}
       </div>
 

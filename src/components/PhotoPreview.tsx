@@ -7,7 +7,7 @@ type Props = {
   index: number;
 };
 
-export default function ImagePreview({ photo, index }: Props) {
+export default function PhotoPreview({ photo, index }: Props) {
   const { selectPhoto } = usePhotoStore();
 
   return (
