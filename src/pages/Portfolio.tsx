@@ -5,6 +5,7 @@ import CategorySelector from "../components/CategorySelector";
 import SimpleMap from "../components/SimpleMap";
 import { useEffect } from "react";
 import { photoCategories } from "../enums/photoCategory";
+import ImagePreview from "../components/ImagePreview";
 
 export default function Portfolio() {
   const { filteredPhotos, selectPhoto, selectedPhoto } = usePhotoStore();
@@ -33,17 +34,7 @@ export default function Portfolio() {
       {/* GRID */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
         {filteredPhotos().map((item, index) => (
-          <div
-            key={index}
-            className="relative w-full aspect-square overflow-hidden rounded-xl shadow cursor-pointer"
-            onClick={() => selectPhoto(item)}
-          >
-            <img
-              src={item.picture}
-              alt={`Fotka ${index + 1}`}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-            />
-          </div>
+          <ImagePreview photo={item} index={index} />
         ))}
       </div>
 
