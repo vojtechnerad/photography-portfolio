@@ -3,10 +3,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
+  user-select: none;
 `;
-
-const activeClasses = "font-bold text-white";
-const inactiveClasses = "hover:text-white transition-colors duration-200";
 
 export default function Toolbar() {
   const navLinkClass = (isActive: boolean) =>
