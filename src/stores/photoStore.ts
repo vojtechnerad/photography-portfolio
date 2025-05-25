@@ -11,6 +11,15 @@ import detail1 from "../assets/portfolio-pictures/neradvojtech-detail1.jpg";
 import detail2 from "../assets/portfolio-pictures/neradvojtech-detail2.jpg";
 import story1 from "../assets/portfolio-pictures/neradvojtech-story1.jpg";
 import reklama1 from "../assets/portfolio-pictures/vojtechnerad-reklama1.jpg";
+import cb1 from "../assets/portfolio-pictures/cb1.jpg";
+import cb2 from "../assets/portfolio-pictures/cb2.jpg";
+import sledovany1 from "../assets/portfolio-pictures/sledovany1.jpg";
+import sledovany2 from "../assets/portfolio-pictures/sledovany2.jpg";
+import naznaceny1 from "../assets/portfolio-pictures/naznaceny1.jpg";
+import naznaceny2 from "../assets/portfolio-pictures/naznaceny2.jpg";
+import naznaceny3 from "../assets/portfolio-pictures/naznaceny3.jpg";
+import malba1 from "../assets/portfolio-pictures/malba1.jpg";
+import malba2 from "../assets/portfolio-pictures/malba2.jpg";
 import { PhotoCategory } from "../enums/photoCategory";
 
 type PhotoStore = {
@@ -64,12 +73,91 @@ export const usePhotoStore = create<PhotoStore>((set, get) => ({
       location: { lat: 50.08493781628289, lng: 14.408954597087712 },
       categories: [],
     },
-    { id: "street-1", picture: street1, title: "", categories: [] },
-    { id: "street-2", picture: street2, title: "", categories: [] },
-    { id: "detail-1", picture: detail1, title: "", categories: [] },
-    { id: "detail-2", picture: detail2, title: "", categories: [] },
+    {
+      id: "street-1",
+      picture: street1,
+      title: "",
+      categories: [PhotoCategory.BLACK_AND_WHITE],
+    },
+    {
+      id: "street-2",
+      picture: street2,
+      title: "",
+      categories: [PhotoCategory.BLACK_AND_WHITE],
+    },
+    {
+      id: "detail-1",
+      picture: detail1,
+      title: "",
+      categories: [PhotoCategory.MACRO, PhotoCategory.PRODUCT],
+    },
+    {
+      id: "detail-2",
+      picture: detail2,
+      title: "",
+      categories: [PhotoCategory.MACRO],
+    },
     { id: "story-1", picture: story1, title: "", categories: [] },
-    { id: "reklama-1", picture: reklama1, title: "", categories: [] },
+    {
+      id: "reklama-1",
+      picture: reklama1,
+      title: "",
+      categories: [PhotoCategory.PRODUCT],
+    },
+    {
+      id: "cb-1",
+      picture: cb1,
+      title: "",
+      categories: [PhotoCategory.BLACK_AND_WHITE],
+    },
+    {
+      id: "cb-2",
+      picture: cb2,
+      title: "",
+      categories: [PhotoCategory.BLACK_AND_WHITE],
+    },
+    {
+      id: "naznaceny-1",
+      picture: naznaceny1,
+      title: "",
+      categories: [PhotoCategory.MOVEMENT],
+    },
+    {
+      id: "naznaceny-2",
+      picture: naznaceny2,
+      title: "",
+      categories: [PhotoCategory.MOVEMENT],
+    },
+    {
+      id: "naznaceny-3",
+      picture: naznaceny3,
+      title: "",
+      categories: [PhotoCategory.MOVEMENT],
+    },
+    {
+      id: "malba-1",
+      picture: malba1,
+      title: "Světelný klíč u dveřního zámku",
+      categories: [],
+    },
+    {
+      id: "malba-2",
+      picture: malba2,
+      title: "Monstrózní energie",
+      categories: [PhotoCategory.PRODUCT],
+    },
+    {
+      id: "sledovany-1",
+      picture: sledovany1,
+      title: "sledovany1",
+      categories: [PhotoCategory.MOVEMENT],
+    },
+    {
+      id: "sledovany-2",
+      picture: sledovany2,
+      title: "sledovany2",
+      categories: [PhotoCategory.MOVEMENT],
+    },
   ],
 
   selectedPhoto: null,

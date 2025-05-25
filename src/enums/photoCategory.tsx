@@ -1,10 +1,16 @@
 import { ReactNode } from "react";
+import { FaPersonRunning } from "react-icons/fa6";
+import { FiBox } from "react-icons/fi";
 import { GiDoubleStreetLights } from "react-icons/gi";
 import { IoIosContrast } from "react-icons/io";
+import { TbMacroFilled } from "react-icons/tb";
 
 export enum PhotoCategory {
   STREET = "STREET",
   BLACK_AND_WHITE = "BLACK_AND_WHITE",
+  MACRO = "MACRO",
+  PRODUCT = "PRODUCT",
+  MOVEMENT = "MOVEMENT",
 }
 
 export const photoCategories: Array<{
@@ -17,5 +23,20 @@ export const photoCategories: Array<{
     id: PhotoCategory.BLACK_AND_WHITE,
     label: "Černobílá",
     icon: <IoIosContrast />,
+  },
+  {
+    id: PhotoCategory.MACRO,
+    label: "Detail",
+    icon: <TbMacroFilled />,
+  },
+  {
+    id: PhotoCategory.PRODUCT,
+    label: "Produkt",
+    icon: <FiBox />,
+  },
+  {
+    id: PhotoCategory.MOVEMENT,
+    label: "Pohyb",
+    icon: <FaPersonRunning />,
   },
 ];

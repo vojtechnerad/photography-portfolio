@@ -12,7 +12,7 @@ export default function CategorySelector() {
           <button
             key={id}
             onClick={() => selectCategory(isActive ? null : id)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium border transition
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium border transition cursor-pointer
               ${
                 isActive
                   ? "bg-white text-black border-white"
