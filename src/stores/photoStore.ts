@@ -7,10 +7,14 @@ import mala1 from "../assets/portfolio-pictures/neradvojtech-mala1.jpg";
 import mala2 from "../assets/portfolio-pictures/neradvojtech-mala2.jpg";
 import street1 from "../assets/portfolio-pictures/neradvojtech-street1.jpg";
 import street2 from "../assets/portfolio-pictures/neradvojtech-street2.jpg";
+import zmrazeny1 from "../assets/portfolio-pictures/zmrazeny1.jpg";
+import zmrazeny2 from "../assets/portfolio-pictures/zmrazeny2.jpg";
 import detail1 from "../assets/portfolio-pictures/neradvojtech-detail1.jpg";
 import detail2 from "../assets/portfolio-pictures/neradvojtech-detail2.jpg";
 import story1 from "../assets/portfolio-pictures/neradvojtech-story1.jpg";
 import reklama1 from "../assets/portfolio-pictures/vojtechnerad-reklama1.jpg";
+import charakter1 from "../assets/portfolio-pictures/charakter1.jpg";
+import charakter2 from "../assets/portfolio-pictures/charakter2.jpg";
 import cb1 from "../assets/portfolio-pictures/cb1.jpg";
 import cb2 from "../assets/portfolio-pictures/cb2.jpg";
 import sledovany1 from "../assets/portfolio-pictures/sledovany1.jpg";
@@ -86,6 +90,18 @@ export const usePhotoStore = create<PhotoStore>((set, get) => ({
       categories: [PhotoCategory.BLACK_AND_WHITE],
     },
     {
+      id: "zmrazeny-1",
+      picture: zmrazeny1,
+      title: "",
+      categories: [PhotoCategory.MOVEMENT],
+    },
+    {
+      id: "zmrazeny-2",
+      picture: zmrazeny2,
+      title: "",
+      categories: [PhotoCategory.MOVEMENT],
+    },
+    {
       id: "detail-1",
       picture: detail1,
       title: "",
@@ -103,6 +119,18 @@ export const usePhotoStore = create<PhotoStore>((set, get) => ({
       picture: reklama1,
       title: "",
       categories: [PhotoCategory.PRODUCT],
+    },
+    {
+      id: "charakter-1",
+      picture: charakter1,
+      title: "",
+      categories: [],
+    },
+    {
+      id: "charakter-2",
+      picture: charakter2,
+      title: "",
+      categories: [],
     },
     {
       id: "cb-1",
