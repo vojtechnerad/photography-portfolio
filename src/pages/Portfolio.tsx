@@ -5,10 +5,10 @@ import CategorySelector from "../components/CategorySelector";
 import SimpleMap from "../components/SimpleMap";
 import { useEffect } from "react";
 import { photoCategories } from "../enums/photoCategory";
-import PhotoPreview from "../components/PhotoPreview";
+import PhotoGallery from "../components/PhotoGallery";
 
 export default function Portfolio() {
-  const { filteredPhotos, selectPhoto, selectedPhoto } = usePhotoStore();
+  const { selectPhoto, selectedPhoto } = usePhotoStore();
 
   // ESC to close Lightbox
   useEffect(() => {
@@ -28,14 +28,17 @@ export default function Portfolio() {
   }, [selectedPhoto, selectPhoto]);
 
   return (
-    <>
+    <div className="grid grid-cols-[200px_1fr] w-full h-full">
       {/* CATEGORIES */}
-      <CategorySelector />
+      <div className="p-4">
+        <CategorySelector />
+      </div>
+
       {/* GRID */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
-        {filteredPhotos().map((item, index) => (
-          <PhotoPreview photo={item} index={index} />
-        ))}
+      <div className="overflow-y-auto">
+        <div className="p-4 overflow-auto">
+          <PhotoGallery />
+        </div>
       </div>
 
       {/* LIGHTBOX */}
@@ -127,6 +130,6 @@ export default function Portfolio() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

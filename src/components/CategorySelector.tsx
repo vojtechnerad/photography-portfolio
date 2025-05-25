@@ -1,10 +1,12 @@
+import { IoMdCloseCircle } from "react-icons/io";
 import { photoCategories } from "../enums/photoCategory";
 import { usePhotoStore } from "../stores/photoStore";
 
 export default function CategorySelector() {
   const { selectedCategory, selectCategory } = usePhotoStore();
+
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-col gap-2 w-full select-none">
       {photoCategories.map(({ id, label, icon }) => {
         const isActive = selectedCategory === id;
 
@@ -12,16 +14,19 @@ export default function CategorySelector() {
           <button
             key={id}
             onClick={() => selectCategory(isActive ? null : id)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium border transition cursor-pointer
-              ${
-                isActive
-                  ? "bg-white text-black border-white"
-                  : "bg-black/30 text-white border-white/30 hover:bg-black/40"
-              }`}
+            className={`px-3 py-2 rounded-lg text-sm font-medium border transition cursor-pointer ${
+              isActive
+                ? "bg-white text-black hover:bg-white/80"
+                : "border-transparent hover:bg-white/10"
+            }`}
           >
-            <span className="text-lg">{icon}</span>
-            {label}
-            {isActive && <span>X</span>}
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">{icon}</span>
+                {label}
+              </div>
+              {isActive && <IoMdCloseCircle />}
+            </div>
           </button>
         );
       })}
