@@ -1,14 +1,6 @@
 import { ReactNode } from "react";
-import {
-  FaEnvelope,
-  FaFlickr,
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaMailchimp,
-} from "react-icons/fa6";
+import { FaEnvelope, FaFlickr, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import CenteredPageContainer from "../components/CenteredPageContainer";
-import { FaMailBulk } from "react-icons/fa";
 
 type LinkButton = {
   icon: ReactNode;
