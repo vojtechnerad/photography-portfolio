@@ -1,64 +1,126 @@
 import { ReactNode } from "react";
-import { FaFacebook } from "react-icons/fa6";
-import { IoMdMailOpen } from "react-icons/io";
-import styled from "styled-components";
+import {
+  FaEnvelope,
+  FaFlickr,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaMailchimp,
+} from "react-icons/fa6";
+import CenteredPageContainer from "../components/CenteredPageContainer";
+import { FaMailBulk } from "react-icons/fa";
 
-// const CameraBody = styled.div`
-//   background-color: black;
-//   width: fit-content;
-//   padding: 10px;
-//   border-radius: 7px;
-// `;
-
-const Card = styled.div`
-  background-color: lightgrey;
-  width: fit-content;
-  border-radius: 7px;
-`;
-
-const StyledRow = styled.tr`
-  font-size: 24px;
-`;
-
-// const Name = styled.div`
-//   font-family: "Corinthia", cursive;
-//   font-weight: 700;
-//   font-style: normal;
-//   font-size: 40px;
-// `;
-
-type TRow = {
+type LinkButton = {
   icon: ReactNode;
-  title: ReactNode;
+  title: string;
+  bgClass: string;
+  hoverClass: string;
+  hoverTextClass?: string;
+  url: string;
 };
 
+const separator = (
+  <div className="flex items-center w-full py-5">
+    <div className="flex-grow h-px bg-gray-500" />
+    <span className="px-3 text-md text-gray-300">nebo</span>
+    <div className="flex-grow h-px bg-gray-500" />
+  </div>
+);
+
 export default function Contacts() {
-  const Row = ({ icon, title }: TRow) => {
+  const SocialsLink = ({
+    icon,
+    title,
+    bgClass,
+    hoverClass,
+    hoverTextClass,
+    url,
+  }: LinkButton) => {
     return (
-      <StyledRow>
-        <td>{icon}</td>
-        <td>{title}</td>
-      </StyledRow>
+      <button
+        className={`w-full grow-1 flex gap-2 p-2 ${bgClass} ${hoverClass} ${
+          hoverTextClass ?? ""
+        } transition hover:cursor-pointer rounded-lg flex justify-center items-center`}
+        onClick={() => window.open(url, "_blank")}
+      >
+        {icon}
+        <span>{title}</span>
+      </button>
     );
   };
 
   return (
-    <Card>
-      {/* <Name>Vojtěch Nerad</Name> */}
-      <table>
-        <Row
-          icon={<IoMdMailOpen size={30} />}
-          title={<td>nevr@vse.cz</td>}
-        ></Row>
-        <Row icon={<IoMdMailOpen />} title={<td>+420 606 123 456</td>}></Row>
-        <Row
-          icon={<FaFacebook />}
-          title={<td>Facebook /vojtech.nerad</td>}
-        ></Row>
-        <Row icon={<span>F</span>} title={<td>Flickr </td>}></Row>
-        <Row icon={<span>IG</span>} title={<td>X </td>}></Row>
-        <Row icon={<span>X</span>} title={<td>@</td>}></Row>
-      </table>
-    </Card>
+    <CenteredPageContainer>
+      <div className="pt-4">
+        <div className="text-center pb-4">
+          <span>
+            Líbí se vám moje práce a chtěli byste se domluvit na focení nebo
+            spolupráci?
+          </span>
+          <br />
+          <span>
+            Napište mi zprávu přes formulář níže - ozvu se co nejdříve.
+          </span>
+        </div>
+        <div className="flex flex-col gap-2">
+          <input
+            type="text"
+            placeholder="Kontakt na vás"
+            className="w-full mb-4 px-4 py-2 rounded border border-white/10"
+          />
+
+          <textarea
+            placeholder="Napište svůj vzkaz..."
+            className="w-full mb-4 px-4 py-2 rounded border border-white/10 h-30 resize-none"
+          ></textarea>
+
+          <button className="w-full transition-colors p-2 rounded-lg font-semibold text-white bg-white/5 hover:bg-white hover:text-black cursor-pointer">
+            Odeslat
+          </button>
+        </div>
+      </div>
+
+      {separator}
+
+      {/* <span className="block text-center p-2">
+        Sledujte mě na sociálních sítích
+      </span> */}
+
+      {/* Socials buttons */}
+      <div className="w-full flex gap-2">
+        <SocialsLink
+          icon={<FaInstagram className="text-xl" />}
+          title="vojtechnerad"
+          bgClass="bg-pink-600/10"
+          hoverClass="hover:bg-pink-600"
+          url="https://instagram.com"
+        />
+        <SocialsLink
+          icon={<FaFlickr className="text-xl" />}
+          title="vojtechnerad"
+          bgClass="bg-gradient-to-r from-[#ff0084]/10 to-[#0063dc]/10"
+          hoverClass="hover:bg-gradient-to-r hover:from-[#ff0084] hover:to-[#0063dc]"
+          url="https://flickr.com"
+        />
+        <SocialsLink
+          icon={<FaLinkedin className="text-xl" />}
+          title="vojtechnerad"
+          bgClass="bg-blue-600/10"
+          hoverClass="hover:bg-blue-600"
+          url="https://linkedin.com"
+        />
+      </div>
+
+      <div className="pt-2">
+        <SocialsLink
+          icon={<FaEnvelope className="text-xl" />}
+          title="fotograf@vojtechnerad.cz"
+          bgClass="bg-white/5"
+          hoverClass="hover:bg-white"
+          url="mailto:fotograf@vojtechnerad.cz"
+          hoverTextClass="hover:text-black"
+        />
+      </div>
+    </CenteredPageContainer>
   );
 }
