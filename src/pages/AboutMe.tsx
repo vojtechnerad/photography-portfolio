@@ -1,27 +1,7 @@
 import picture from "../assets/vojtech-nerad.jpg";
-import { IoCamera } from "react-icons/io5";
-import { MdLens } from "react-icons/md";
 import { ReactNode } from "react";
 import { LuAperture, LuCamera } from "react-icons/lu";
 import CenteredPageContainer from "../components/CenteredPageContainer";
-
-type TItemCard = {
-  icon: ReactNode;
-  brand: string;
-  title: string;
-};
-
-const ItemCard = ({ icon, brand, title }: TItemCard) => {
-  return (
-    <div className="flex items-center bg-blue-500 rounded-md gap-3">
-      <div className="p-3">{icon}</div>
-      <div className="flex flex-col p-3">
-        <span>{brand}</span>
-        <span>{title}</span>
-      </div>
-    </div>
-  );
-};
 
 type TEquipmentCard = {
   icon: ReactNode;

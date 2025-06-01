@@ -8,7 +8,6 @@ import { BiCalendar, BiMap } from "react-icons/bi";
 import { ShootingMode } from "../enums/shootingMode";
 import { ReactNode } from "react";
 import { TbMacroFilled } from "react-icons/tb";
-import { BsMap } from "react-icons/bs";
 
 const formatDate = (date: Date): string => {
   return `${date.toLocaleDateString()} ${date.getDate()}:${date.getHours()}`;
