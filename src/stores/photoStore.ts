@@ -25,6 +25,7 @@ import naznaceny3 from "../assets/portfolio-pictures/naznaceny3.jpg";
 import malba1 from "../assets/portfolio-pictures/malba1.jpg";
 import malba2 from "../assets/portfolio-pictures/malba2.jpg";
 import { PhotoCategory } from "../enums/photoCategory";
+import { ShootingMode } from "../enums/shootingMode";
 
 type PhotoStore = {
   photoList: Array<Photo>;
@@ -54,6 +55,8 @@ export const usePhotoStore = create<PhotoStore>((set, get) => ({
       aperture: "13",
       shutterSpeed: "1/30",
       iso: 400,
+      shootingMode: ShootingMode.AperturePriority,
+      dateTaken: new Date("2025-04-08T19:02"),
       categories: [PhotoCategory.STREET],
     },
     {

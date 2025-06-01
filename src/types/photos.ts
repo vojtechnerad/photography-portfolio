@@ -1,4 +1,5 @@
 import { PhotoCategory } from "../enums/photoCategory";
+import { ShootingMode } from "../enums/shootingMode";
 
 export type Photo = {
   id: string;
@@ -12,6 +13,7 @@ export type Photo = {
   aperture?: string;
   shutterSpeed?: string;
   iso?: number;
+  shootingMode?: ShootingMode;
 
   categories: Array<PhotoCategory>;
 };
