@@ -58,12 +58,12 @@ export default function Contacts() {
           <input
             type="text"
             placeholder="Kontakt na vás"
-            className="w-full mb-4 px-4 py-2 rounded border border-white/10"
+            className="w-full mb-4 px-4 py-2 rounded border border-white/10 hover:border-white/50"
           />
 
           <textarea
             placeholder="Napište svůj vzkaz..."
-            className="w-full mb-4 px-4 py-2 rounded border border-white/10 h-30 resize-none"
+            className="w-full mb-4 px-4 py-2 rounded border border-white/10 h-30 resize-none hover:border-white/50"
           ></textarea>
 
           <button className="w-full transition-colors p-2 rounded-lg font-semibold text-white bg-white/5 hover:bg-white hover:text-black cursor-pointer">
