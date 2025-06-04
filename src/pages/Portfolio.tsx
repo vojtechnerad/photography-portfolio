@@ -25,9 +25,9 @@ export default function Portfolio() {
   }, [selectedPhoto, selectPhoto]);
 
   return (
-    <div className="grid grid-cols-[200px_1fr] w-full h-full">
+    <div className="grid sm:grid-cols-[200px_1fr] w-full h-full overflow-hidden">
       {/* CATEGORIES */}
-      <div className="p-4">
+      <div className="sm:p-4 h-fit overflow-scroll">
         <CategorySelector />
       </div>
 

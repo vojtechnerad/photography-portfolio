@@ -6,7 +6,7 @@ export default function CategorySelector() {
   const { selectedCategory, selectCategory } = usePhotoStore();
 
   return (
-    <div className="flex flex-col gap-2 w-full select-none">
+    <div className="flex flex-row sm:flex-col gap-2 w-full select-none">
       {photoCategories.map(({ id, label, icon }) => {
         const isActive = selectedCategory === id;
 
@@ -22,10 +22,14 @@ export default function CategorySelector() {
           >
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <span className="text-lg">{icon}</span>
+                <span className="text-lg w-[18px]">{icon}</span>
                 {label}
               </div>
-              {isActive && <IoMdCloseCircle />}
+              {isActive && (
+                <span className="w-[18px]" style={{ marginLeft: 6 }}>
+                  <IoMdCloseCircle />
+                </span>
+              )}
             </div>
           </button>
         );

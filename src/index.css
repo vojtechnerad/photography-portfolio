@@ -83,17 +83,27 @@ body {
   font-optical-sizing: auto;
   background-color: #121212;
   color: #ededed;
-  height: 100vh;
+  height: 100dvh;
 }
 
 html {
-  height: 100vh;
-  min-width: 500px;
+  height: 100dvh;
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
   height: 8px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -103,8 +113,6 @@ html {
 ::-webkit-scrollbar-thumb {
   background-color: rgba(100, 100, 100, 0.5); /* šedý s průhledností */
   border-radius: 15px;
-  border: 2px solid transparent;
-  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {

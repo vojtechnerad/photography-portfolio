@@ -13,7 +13,6 @@ const Title = styled.span`
   font-family: "Corinthia", cursive;
   font-weight: 700;
   font-style: normal;
-  font-size: 72px;
   line-height: 1.3;
 `;
 
@@ -23,7 +22,7 @@ const Title = styled.span`
 export default function Header() {
   return (
     <Container>
-      <Title>Vojtěch Nerad</Title>
+      <Title className="text-5xl sm:text-7xl">Vojtěch Nerad</Title>
       {/* <Subtitle>fotograf</Subtitle> */}
     </Container>
   );

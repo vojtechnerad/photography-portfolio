@@ -37,16 +37,28 @@ export default function Lightbox() {
         onClick={() => selectPhoto(null)}
       >
         <div
-          className="w-[90vw] h-[90vh] bg-[#121212] rounded-lg overflow-hidden flex"
+          className="w-[90vw] h-[90vh] bg-[#121212] rounded-lg overflow-scroll sm:overflow-hidden flex flex-col sm:flex-row-reverse"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* LEVÝ PANEL */}
-          <div className="w-[300px] p-4 text-white overflow-y-auto">
-            <h2 className="text-xl font-semibold mb-2">{photo.title}</h2>
+          {/* FOTKA  */}
+          <div className="flex items-center justify-center relative bg-black h-fit sm:h-auto sm:w-full">
+            <img
+              src={photo.picture}
+              alt="Detailní pohled"
+              className="max-w-full max-h-[500px] sm:max-h-full sm:h-full object-contain"
+            />
+            <button
+              onClick={() => selectPhoto(null)}
+              className="absolute top-2 right-2 text-white bg-black rounded-full  flex items-center justify-center hover:cursor-pointer p-1"
+            >
+              <IoIosClose className="w-8 h-8" />
+              <span className="px-2">Zavřít</span>
+            </button>
+          </div>
 
-            {/* {photo.description && (
-              <p className="text-sm opacity-80">{photo.description}</p>
-            )} */}
+          {/* LEVÝ PANEL */}
+          <div className="sm:w-[300px] p-4 text-white sm:overflow-y-auto">
+            <h2 className="text-xl font-semibold mb-2">{photo.title}</h2>
 
             <div className="py-2">
               {photo.categories.map((cat) => {
@@ -110,22 +122,6 @@ export default function Lightbox() {
                 <SimpleMap lat={photo.location.lat} lng={photo.location.lng} />
               </>
             )}
-          </div>
-
-          {/* FOTKA */}
-          <div className="flex-grow flex items-center justify-center relative bg-black">
-            <img
-              src={photo.picture}
-              alt="Detailní pohled"
-              className="max-w-full max-h-full object-contain"
-            />
-            <button
-              onClick={() => selectPhoto(null)}
-              className="absolute top-2 right-2 text-white bg-black rounded-full  flex items-center justify-center hover:cursor-pointer p-1"
-            >
-              <IoIosClose className="w-8 h-8" />
-              <span className="px-2">Zavřít</span>
-            </button>
           </div>
         </div>
       </div>

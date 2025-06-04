@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
       <Toolbar />
-      <div className="flex-1 overflow-hidden">
+      <div className="sm:flex-1 overflow-hidden">
         <Routes>
           <Route path="/" element={<Portfolio />} />
 

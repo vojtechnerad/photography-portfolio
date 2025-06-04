@@ -79,7 +79,7 @@ export default function Contacts() {
       </span> */}
 
       {/* Socials buttons */}
-      <div className="w-full flex gap-2">
+      <div className="w-full flex-wrap sm:flex-nowrap flex gap-2">
         <SocialsLink
           icon={<FaInstagram className="text-xl" />}
           title="vojtechnerad"
