@@ -13,7 +13,7 @@ function App() {
       <Toolbar />
       <div className="flex-1 overflow-hidden">
         <Routes>
-          <Route path="/" element={<Navigate to="/portfolio" />} />
+          <Route path="/" element={<Portfolio />} />
 
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="kontakty" element={<Contacts />} />

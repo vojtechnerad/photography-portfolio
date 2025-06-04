@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -7,6 +7,9 @@ const Container = styled.div`
 `;
 
 export default function Toolbar() {
+  const location = useLocation();
+  const isRoot = location.pathname === "/";
+
   const navLinkClass = (isActive: boolean) =>
     isActive
       ? "font-bold text-white"
@@ -15,7 +18,7 @@ export default function Toolbar() {
     <Container className="flex justify-center gap-4 text-gray-300 text-lg">
       <NavLink
         to="/portfolio"
-        className={({ isActive }) => navLinkClass(isActive)}
+        className={({ isActive }) => navLinkClass(isActive || isRoot)}
       >
         <span>Portfolio</span>
       </NavLink>
