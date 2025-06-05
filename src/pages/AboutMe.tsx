@@ -26,12 +26,12 @@ export default function AboutMe() {
     <CenteredPageContainer>
       <h2 className="text-2xl font-bold pb-2">Můj příběh</h2>
       <p className="text-justify pb-4">
-        Fotografii se věnuji celé tři měsíce — od chvíle, kdy jsem se dozvěděl,
-        že digitální fotografie je povinný předmět v rámci zvolené vedlejší
-        specializace. Od té doby se snažím tvářit, že vím, co dělám, a že clona
-        a čas nejsou jen náhodná slova. Na tomto portfoliu najdete moje pokusy o
-        umění, které vznikly s vypětím sil, trochou štěstí a občas i
-        neplánovanou kreativitou.
+        Fotografii se věnuji celé tři měsíce — od chvíle, kdy jsem zjistil, že
+        je to povinný předmět. Za tu dobu jsem zvládl zapnout fotoaparát,
+        přepnout ho z auto na auto s bleskem a zjistit, co je to clona (něco s
+        kolečkem). Každý snímek je pro mě cestou sebepoznání — většinou poznám,
+        že to zas není ono. Ale cvakám dál. Inspiruje mě světlo, stíny a pocit,
+        že když to přepnu do černobílé, vypadá to hned umělecky.
       </p>
 
       {/* Citat s fotkou */}
@@ -39,14 +39,16 @@ export default function AboutMe() {
         <div className="flex bg-white/5 p-3 rounded-xl items-center">
           <div className="p-2 grow-1 italic">
             <p>
-              "Moje fotky jsou jako diamanty, vznikají pod obrovským tlakem."
+              "Moje fotky jsou jako diamanty &ndash; rodí se pod brutálním
+              tlakem."
             </p>
-            <p className="text-sm">
-              (nedělní deadline odevzdání dalšího balíku se blíží, a já zase nic
-              nemám)
+            <p className="text-xs">
+              {/* (nedělní deadline odevzdání dalšího balíku se blíží, a já zase nic
+              nemám) */}
+              Do odevzdání dalšího balíku zbývá pár hodin a já zase nic nemám.
             </p>
             <br />
-            <p>- Spořádaný student digitální fotografie</p>
+            <p>&ndash; Spořádaný student digitální fotografie</p>
           </div>
           <img src={picture} alt="" width={150} className="rounded-xl" />
         </div>

@@ -15,7 +15,7 @@ export default function Toolbar() {
       ? "font-bold text-white"
       : "hover:text-white transition-colors duration-200";
   return (
-    <Container className="flex justify-center gap-4 text-gray-300 text-lg">
+    <Container className="flex justify-center gap-4 text-gray-300 text-lg pb-2">
       <NavLink
         to="/portfolio"
         className={({ isActive }) => navLinkClass(isActive || isRoot)}
