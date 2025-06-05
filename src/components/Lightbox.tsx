@@ -2,7 +2,7 @@ import PhotoMetaItem from "../components/PhotoMetaItem";
 import SimpleMap from "../components/SimpleMap";
 import { photoCategories } from "../enums/photoCategory";
 import { usePhotoStore } from "../stores/photoStore";
-import { MdIso, MdShutterSpeed, MdZoomIn } from "react-icons/md";
+import { MdIso, MdShutterSpeed } from "react-icons/md";
 import { IoIosClose, IoMdAperture } from "react-icons/io";
 import { BiCalendar, BiMap } from "react-icons/bi";
 import { ShootingMode } from "../enums/shootingMode";

@@ -1,11 +1,5 @@
 import { ReactNode } from "react";
-import {
-  FaCar,
-  FaLeaf,
-  FaLightbulb,
-  FaPerson,
-  FaPersonRunning,
-} from "react-icons/fa6";
+import { FaCar, FaLeaf, FaLightbulb, FaPersonRunning } from "react-icons/fa6";
 import { FiBox } from "react-icons/fi";
 import { GiDoubleStreetLights } from "react-icons/gi";
 import { IoIosContrast, IoIosPerson } from "react-icons/io";
