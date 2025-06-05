@@ -43,7 +43,7 @@ export default function PhotoPreview({ photo, index }: Props) {
               <FaExpandAlt />
             </div>
           </div>
-          <div className="px-2 py-1 rounded text-md text-left">
+          <div className="px-2 py-1 rounded text-md text-left font-bold">
             {photo.title}
           </div>
         </div>
