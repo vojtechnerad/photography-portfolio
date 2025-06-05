@@ -43,7 +43,7 @@ export default function Contacts() {
 
   return (
     <CenteredPageContainer>
-      <div className="pt-4">
+      <div>
         <div className="text-center pb-4">
           <span>
             Líbí se vám moje práce a chtěli byste se domluvit na focení nebo
