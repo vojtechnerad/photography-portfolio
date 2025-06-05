@@ -5,7 +5,6 @@ export type Photo = {
   id: string;
   picture: string;
   title: string;
-  description?: string;
 
   dateTaken?: Date;
   location?: { lat: number; lng: number };

@@ -2,15 +2,18 @@ import PhotoMetaItem from "../components/PhotoMetaItem";
 import SimpleMap from "../components/SimpleMap";
 import { photoCategories } from "../enums/photoCategory";
 import { usePhotoStore } from "../stores/photoStore";
-import { MdIso, MdShutterSpeed } from "react-icons/md";
+import { MdIso, MdShutterSpeed, MdZoomIn } from "react-icons/md";
 import { IoIosClose, IoMdAperture } from "react-icons/io";
 import { BiCalendar, BiMap } from "react-icons/bi";
 import { ShootingMode } from "../enums/shootingMode";
 import { ReactNode } from "react";
 import { TbMacroFilled } from "react-icons/tb";
+import { HiOutlineEye } from "react-icons/hi";
 
 const formatDate = (date: Date): string => {
-  return `${date.toLocaleDateString()} ${date.getDate()}:${date.getHours()}`;
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  return `${date.toLocaleDateString()} ${hours}:${minutes}`;
 };
 
 const shootingModeIcon = (mode: ShootingMode): ReactNode => {
@@ -95,6 +98,14 @@ export default function Lightbox() {
 
               {photo.iso && (
                 <PhotoMetaItem icon={<MdIso />} label="ISO" value={photo.iso} />
+              )}
+
+              {photo.focalLength && (
+                <PhotoMetaItem
+                  icon={<HiOutlineEye />}
+                  label="Ohnisková vzdálenost"
+                  value={photo.focalLength}
+                />
               )}
 
               {photo.shootingMode && (

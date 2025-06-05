@@ -3,6 +3,7 @@ import { FaPersonRunning } from "react-icons/fa6";
 import { FiBox } from "react-icons/fi";
 import { GiDoubleStreetLights } from "react-icons/gi";
 import { IoIosContrast } from "react-icons/io";
+import { MdPets } from "react-icons/md";
 import { TbMacroFilled } from "react-icons/tb";
 
 export enum PhotoCategory {
@@ -11,6 +12,7 @@ export enum PhotoCategory {
   MACRO = "MACRO",
   PRODUCT = "PRODUCT",
   MOVEMENT = "MOVEMENT",
+  ANIMALS = "ANIMALS",
 }
 
 export const photoCategories: Array<{
@@ -38,5 +40,10 @@ export const photoCategories: Array<{
     id: PhotoCategory.MOVEMENT,
     label: "Pohyb",
     icon: <FaPersonRunning />,
+  },
+  {
+    id: PhotoCategory.ANIMALS,
+    label: "Zvířata",
+    icon: <MdPets />,
   },
 ];
